@@ -332,7 +332,8 @@
   }
 
   .banner-carousel .content-box {
-    height: 800px;
+    height: 100vh;
+    text-align: center;
   }
 
   .banner-carousel .content-box h1 {
@@ -925,6 +926,11 @@
     font-size: 46px;
   }
 
+  .banner-carousel .content-box {
+    height: 100vh;
+    text-align: center;
+  }
+
   .banner-three .banner-carousel .content-box h1 {
     font-size: 46px;
     line-height: 1em;
@@ -1298,6 +1304,11 @@
 }
 
 @media only screen and (max-width: 479px) {
+
+  .banner-carousel .content-box {
+    height: 100vh;
+    text-align: center;
+  }
 
   .about-section .image-column .image-block,
   .about-section .image-column .image-block:nth-child(1),
