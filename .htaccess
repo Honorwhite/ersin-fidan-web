@@ -1,0 +1,168 @@
+# Op. Dr. Ersin Fidan - Adana Ortopedi ve Travmatoloji Uzmanı
+# .htaccess Dosyası - SEO ve Güvenlik Optimizasyonu
+
+# Gzip Sıkıştırma
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE application/json
+</IfModule>
+
+# Browser Caching
+<IfModule mod_expires.c>
+    ExpiresActive on
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType application/font-woff "access plus 1 year"
+    ExpiresByType application/font-woff2 "access plus 1 year"
+    ExpiresByType text/html "access plus 1 hour"
+</IfModule>
+
+# Security Headers
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options nosniff
+    Header always set X-Frame-Options DENY
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+</IfModule>
+
+# URL Rewriting - SEO Friendly URLs
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # www olmadan gelen istekleri www'lu versiyona yönlendir
+    RewriteCond %{HTTP_HOST} !^www\. [NC]
+    RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]
+    
+    # HTTP'den HTTPS'e yönlendirme
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+    
+    # Trailing slash kaldırma
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [R=301,L]
+    
+    # Dosya uzantılarını gizle
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^([^\.]+)$ $1.html [NC,L]
+    
+    # Özel sayfa yönlendirmeleri
+    RewriteRule ^adana-ortopedi-doktoru/?$ index.html [NC,L]
+    RewriteRule ^adana-el-cerrahisi-doktoru/?$ adana-el-cerrahisi.html [NC,L]
+    RewriteRule ^adana-diz-protezi/?$ adana-diz-kalca-protezi.html [NC,L]
+    RewriteRule ^adana-kalca-protezi/?$ adana-diz-kalca-protezi.html [NC,L]
+    RewriteRule ^adana-ortopedik-travma/?$ adana-ortopedik-travma-cerrahisi.html [NC,L]
+    RewriteRule ^adana-sporcu-yaralanmalari/?$ adana-sporcu-yaralanmalari.html [NC,L]
+    RewriteRule ^adana-ortopedi-randevu/?$ iletisim.html [NC,L]
+    RewriteRule ^adana-ortopedi-iletisim/?$ iletisim.html [NC,L]
+    RewriteRule ^adana-ortopedi-sss/?$ sikcasorulanlar.html [NC,L]
+    RewriteRule ^adana-ortopedi-blog/?$ blog.html [NC,L]
+    RewriteRule ^adana-ortopedi-hakkinda/?$ hakkimizda.html [NC,L]
+    RewriteRule ^adana-ortopedi-hizmetler/?$ hizmetler.html [NC,L]
+    
+    # Anahtar kelime bazlı yönlendirmeler
+    RewriteRule ^diz-protezi/?$ adana-diz-kalca-protezi.html [NC,L]
+    RewriteRule ^kalca-protezi/?$ adana-diz-kalca-protezi.html [NC,L]
+    RewriteRule ^el-cerrahisi/?$ adana-el-cerrahisi.html [NC,L]
+    RewriteRule ^mikrocerrahi/?$ adana-el-cerrahisi.html [NC,L]
+    RewriteRule ^ortopedik-travma/?$ adana-ortopedik-travma-cerrahisi.html [NC,L]
+    RewriteRule ^sporcu-yaralanmalari/?$ adana-sporcu-yaralanmalari.html [NC,L]
+    RewriteRule ^ortopedi-randevu/?$ iletisim.html [NC,L]
+    RewriteRule ^ortopedi-iletisim/?$ iletisim.html [NC,L]
+    RewriteRule ^ortopedi-sss/?$ sikcasorulanlar.html [NC,L]
+    RewriteRule ^ortopedi-blog/?$ blog.html [NC,L]
+    RewriteRule ^ortopedi-hakkinda/?$ hakkimizda.html [NC,L]
+    RewriteRule ^ortopedi-hizmetler/?$ hizmetler.html [NC,L]
+    
+    # Dr. Ersin Fidan aramaları için
+    RewriteRule ^dr-ersin-fidan/?$ index.html [NC,L]
+    RewriteRule ^op-dr-ersin-fidan/?$ index.html [NC,L]
+    RewriteRule ^ersin-fidan/?$ index.html [NC,L]
+    RewriteRule ^doktor-ersin-fidan/?$ index.html [NC,L]
+    RewriteRule ^ortopedi-doktoru-ersin-fidan/?$ index.html [NC,L]
+    RewriteRule ^adana-ortopedi-doktoru-ersin-fidan/?$ index.html [NC,L]
+</IfModule>
+
+# Error Pages
+ErrorDocument 404 /404.html
+ErrorDocument 500 /404.html
+
+# Hotlink Protection
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+    RewriteCond %{HTTP_REFERER} !^$
+    RewriteCond %{HTTP_REFERER} !^https?://(www\.)?drersinfidan\.com [NC]
+    RewriteCond %{HTTP_REFERER} !^https?://(www\.)?google\.com [NC]
+    RewriteCond %{HTTP_REFERER} !^https?://(www\.)?bing\.com [NC]
+    RewriteCond %{HTTP_REFERER} !^https?://(www\.)?yahoo\.com [NC]
+    RewriteRule \.(jpg|jpeg|png|gif|webp)$ - [F]
+</IfModule>
+
+# Block Bad Bots
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTP_USER_AGENT} ^$ [OR]
+    RewriteCond %{HTTP_USER_AGENT} ^(java|curl|wget).* [NC,OR]
+    RewriteCond %{HTTP_USER_AGENT} ^.*(libwww-perl|curl|wget|python|nikto|scan).* [NC,OR]
+    RewriteCond %{HTTP_USER_AGENT} ^.*(winhttp|HTTrack|clshttp|archiver|loader|email|harvest|extract|grab|miner).* [NC]
+    RewriteRule .* - [F,L]
+</IfModule>
+
+# Prevent Access to Sensitive Files
+<FilesMatch "\.(htaccess|htpasswd|ini|log|sh|inc|bak|sql)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Prevent Access to Hidden Files
+<FilesMatch "^\.">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# MIME Types
+<IfModule mod_mime.c>
+    AddType application/font-woff .woff
+    AddType application/font-woff2 .woff2
+    AddType image/webp .webp
+    AddType application/json .json
+</IfModule>
+
+# Character Set
+AddDefaultCharset UTF-8
+
+# Server Signature
+ServerSignature Off
+
+# Directory Browsing
+Options -Indexes
+
+# Follow SymLinks
+Options +FollowSymLinks
+
+# Custom Headers for SEO
+<IfModule mod_headers.c>
+    # Canonical URL
+    Header always set Link "<https://www.drersinfidan.com/>; rel=\"canonical\""
+    
+    # Mobile Optimization
+    Header always set Vary "Accept-Encoding, User-Agent"
+</IfModule> 
