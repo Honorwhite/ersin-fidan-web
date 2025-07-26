@@ -417,8 +417,8 @@
       margin: 0,
       nav: true,
       smartSpeed: 500,
-      autoplay: 6000,
-      autoplayTimeout: 7000,
+      autoplay: 10000,
+      autoplayTimeout: 11000,
       navText: [
         '<span class="icon fa fa-angle-left"></span>',
         '<span class="icon fa fa-angle-right"></span>'

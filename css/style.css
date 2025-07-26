@@ -75,6 +75,7 @@
   outline: none;
   font-size: 100%;
   line-height: inherit;
+  text-transform: none !important;
 }
 
 /***
@@ -2581,10 +2582,7 @@ img.lazy-image.loaded {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  -webkit-filter: grayscale(100%);
-  -ms-filter: grayscale(100%);
-  -moz-filter: grayscale(100%);
-  filter: grayscale(100%);
+ 
   -webkit-transform: scale(1);
   transform: scale(1);
 }
@@ -2656,7 +2654,7 @@ img.lazy-image.loaded {
 
 .banner-carousel .content-box h1 {
   display: block;
-  font-size: 140px;
+  font-size: 100px;
   line-height: 0.85em;
   color: #ffffff;
   font-weight: 600;
@@ -2754,10 +2752,7 @@ img.lazy-image.loaded {
   background-size: cover;
   background-position: left top;
   border-radius: 50%;
-  -webkit-filter: grayscale(100%);
-  -ms-filter: grayscale(100%);
-  -moz-filter: grayscale(100%);
-  filter: grayscale(100%);
+ 
   z-index: 2;
   opacity: 0;
   -webkit-transform: translateX(100%);
@@ -3870,10 +3865,7 @@ img.lazy-image.loaded {
 .about-section .image-column .image-block img {
   display: block;
   width: 100%;
-  -webkit-filter: grayscale(100%);
-  -ms-filter: grayscale(100%);
-  -moz-filter: grayscale(100%);
-  filter: grayscale(100%);
+ 
   border-radius: 7px;
 }
 
@@ -4030,10 +4022,7 @@ img.lazy-image.loaded {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  -webkit-filter: grayscale(100%);
-  -ms-filter: grayscale(100%);
-  -moz-filter: grayscale(100%);
-  filter: grayscale(100%);
+ 
 }
 
 .live-section .main-image-box .inner {
@@ -4336,10 +4325,7 @@ img.lazy-image.loaded {
 .we-do-section .featured-block .image img {
   display: block;
   width: 100%;
-  -webkit-filter: grayscale(100%);
-  -ms-filter: grayscale(100%);
-  -moz-filter: grayscale(100%);
-  filter: grayscale(100%);
+ 
   border-radius: 7px;
 }
 
@@ -4675,10 +4661,7 @@ img.lazy-image.loaded {
   display: block;
   width: 100%;
   height: auto;
-  -webkit-filter: grayscale(100%);
-  -ms-filter: grayscale(100%);
-  -moz-filter: grayscale(100%);
-  filter: grayscale(100%);
+ 
   -webkit-transition: all 300ms ease;
   transition: all 300ms ease;
   border-radius: 7px;
@@ -4895,10 +4878,7 @@ img.lazy-image.loaded {
   background-position: center center;
   background-size: cover;
   background-attachment: fixed;
-  -webkit-filter: grayscale(100%);
-  -ms-filter: grayscale(100%);
-  -moz-filter: grayscale(100%);
-  filter: grayscale(100%);
+ 
   opacity: 0.3;
 }
 
@@ -5143,10 +5123,7 @@ img.lazy-image.loaded {
 .trusted-section .featured-block-two .image img {
   display: block;
   width: 100%;
-  -webkit-filter: grayscale(100%);
-  -ms-filter: grayscale(100%);
-  -moz-filter: grayscale(100%);
-  filter: grayscale(100%);
+ 
   border-radius: 7px;
 }
 
@@ -5537,10 +5514,7 @@ img.lazy-image.loaded {
   background-position: center center;
   background-size: cover;
   background-attachment: fixed;
-  -webkit-filter: grayscale(100%);
-  -ms-filter: grayscale(100%);
-  -moz-filter: grayscale(100%);
-  filter: grayscale(100%);
+ 
   opacity: 0.3;
 }
 
@@ -5955,10 +5929,7 @@ img.lazy-image.loaded {
 .agency-section .featured-block-two .image img {
   display: block;
   width: 100%;
-  -webkit-filter: grayscale(100%);
-  -ms-filter: grayscale(100%);
-  -moz-filter: grayscale(100%);
-  filter: grayscale(100%);
+ 
   border-radius: 50%;
 }
 
@@ -6037,10 +6008,7 @@ img.lazy-image.loaded {
 .news-block .image-box img {
   display: block;
   width: 100%;
-  -webkit-filter: grayscale(100%);
-  -ms-filter: grayscale(100%);
-  -moz-filter: grayscale(100%);
-  filter: grayscale(100%);
+ 
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
   border-radius: 7px;
@@ -6166,10 +6134,7 @@ img.lazy-image.loaded {
 .news-block-two .image-box img {
   display: block;
   width: 100%;
-  -webkit-filter: grayscale(100%);
-  -ms-filter: grayscale(100%);
-  -moz-filter: grayscale(100%);
-  filter: grayscale(100%);
+ 
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
   border-radius: 7px;
@@ -7764,20 +7729,14 @@ img.lazy-image.loaded {
 .why-us-section .left-col .image-box img {
   display: block;
   width: 100%;
-  -webkit-filter: grayscale(100%);
-  -ms-filter: grayscale(100%);
-  -moz-filter: grayscale(100%);
-  filter: grayscale(100%);
+
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
   border-radius: 50%;
 }
 
 .why-us-section .left-col .image-box:hover img {
-  -webkit-filter: grayscale(0%);
-  -ms-filter: grayscale(0%);
-  -moz-filter: grayscale(0%);
-  filter: grayscale(0%);
+
 }
 
 .why-us-section .left-col .image-box:before {
@@ -7798,7 +7757,7 @@ img.lazy-image.loaded {
   top: -70%;
   width: 100%;
   height: 100%;
-  background: var(--thm-black);
+
   opacity: 0.2;
   border-radius: 50%;
   z-index: 2;
@@ -8056,10 +8015,7 @@ img.lazy-image.loaded {
 .testi-block .info .image img {
   display: block;
   width: 100%;
-  -webkit-filter: grayscale(100%);
-  -ms-filter: grayscale(100%);
-  -moz-filter: grayscale(100%);
-  filter: grayscale(100%);
+ 
   border-radius: 7px;
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
@@ -8707,10 +8663,7 @@ img.lazy-image.loaded {
   background-repeat: no-repeat;
   background-position: top center;
   background-size: cover;
-  -webkit-filter: grayscale(100%);
-  -ms-filter: grayscale(100%);
-  -moz-filter: grayscale(100%);
-  filter: grayscale(100%);
+ 
   opacity: 0.3;
   background-attachment: fixed;
 }
@@ -9203,10 +9156,7 @@ img.lazy-image.loaded {
 .get-quote-section .featured-block .image img {
   display: block;
   width: 100%;
-  -webkit-filter: grayscale(100%);
-  -ms-filter: grayscale(100%);
-  -moz-filter: grayscale(100%);
-  filter: grayscale(100%);
+ 
   border-radius: 7px;
 }
 
@@ -9254,12 +9204,29 @@ img.lazy-image.loaded {
 
 .get-quote-section .counter .counter-image img {
   display: block;
-  width: 100%;
-  -webkit-filter: grayscale(100%);
-  -ms-filter: grayscale(100%);
-  -moz-filter: grayscale(100%);
-  filter: grayscale(100%);
+  width: 50%;
+ 
   border-radius: 7px;
+}
+@media (max-width: 768px) {
+  .get-quote-section .counter .counter-image:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 14px;
+    height: 100%;
+    background: var(--thm-base);
+    border-radius: 7px;
+  }
+}
+@media (max-width: 768px) {
+  .get-quote-section .counter .counter-image:img {
+    display: block;
+    width: 100%;
+   
+    border-radius: 7px;
+  }
 }
 
 .get-quote-section .counter .count-box {
@@ -9374,10 +9341,7 @@ img.lazy-image.loaded {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  -webkit-filter: grayscale(100%);
-  -ms-filter: grayscale(100%);
-  -moz-filter: grayscale(100%);
-  filter: grayscale(100%);
+ 
   opacity: 0.1;
 }
 
@@ -9605,10 +9569,7 @@ img.lazy-image.loaded {
 .discover-block .image-box img {
   display: block;
   width: 100%;
-  -webkit-filter: grayscale(100%);
-  -ms-filter: grayscale(100%);
-  -moz-filter: grayscale(100%);
-  filter: grayscale(100%);
+ 
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   border-radius: 7px;
@@ -9814,10 +9775,7 @@ img.lazy-image.loaded {
   display: block;
   width: auto;
   max-width: none;
-  -webkit-filter: grayscale(100%);
-  -ms-filter: grayscale(100%);
-  -moz-filter: grayscale(100%);
-  filter: grayscale(100%);
+ 
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   border-radius: 7px;
@@ -9954,10 +9912,7 @@ img.lazy-image.loaded {
 .work-tabs .tabs-content .image img {
   display: block;
   width: 100%;
-  -webkit-filter: grayscale(100%);
-  -ms-filter: grayscale(100%);
-  -moz-filter: grayscale(100%);
-  filter: grayscale(100%);
+ 
   border-radius: 7px;
 }
 
@@ -10043,10 +9998,7 @@ img.lazy-image.loaded {
   background-position: center center;
   background-size: cover;
   background-attachment: fixed;
-  -webkit-filter: grayscale(100%);
-  -ms-filter: grayscale(100%);
-  -moz-filter: grayscale(100%);
-  filter: grayscale(100%);
+ 
   opacity: 0.3;
 }
 
@@ -10203,10 +10155,7 @@ img.lazy-image.loaded {
 .about-section-two .image-box .image img {
   display: block;
   width: 100%;
-  -webkit-filter: grayscale(100%);
-  -ms-filter: grayscale(100%);
-  -moz-filter: grayscale(100%);
-  filter: grayscale(100%);
+ 
   border-radius: 7px;
 }
 
@@ -10957,13 +10906,11 @@ img.lazy-image.loaded {
   height: 100%;
   opacity: 0.4;
   z-index: 0;
+  filter: grayscale(100%);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  -webkit-filter: grayscale(100%);
-  -ms-filter: grayscale(100%);
-  -moz-filter: grayscale(100%);
-  filter: grayscale(100%);
+ 
 }
 
 .page-banner .shape-1 {
@@ -11726,10 +11673,7 @@ img.lazy-image.loaded {
   display: block;
   width: 100%;
   border-radius: 50%;
-  -webkit-filter: grayscale(100%);
-  -ms-filter: grayscale(100%);
-  -moz-filter: grayscale(100%);
-  filter: grayscale(100%);
+ 
   transition: all 0.4s ease;
   -moz-transition: all 0.4s ease;
   -webkit-transition: all 0.4s ease;
@@ -11912,10 +11856,7 @@ img.lazy-image.loaded {
 .post-details .image-box img {
   display: block;
   width: 100%;
-  -webkit-filter: grayscale(100%);
-  -ms-filter: grayscale(100%);
-  -moz-filter: grayscale(100%);
-  filter: grayscale(100%);
+ 
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
   border-radius: 7px;
@@ -12134,10 +12075,7 @@ img.lazy-image.loaded {
   height: 90px;
   display: block;
   border-radius: 50%;
-  -webkit-filter: grayscale(100%);
-  -ms-filter: grayscale(100%);
-  -moz-filter: grayscale(100%);
-  filter: grayscale(100%);
+ 
 }
 
 .comments-area .comment-box .info {
@@ -12225,10 +12163,7 @@ img.lazy-image.loaded {
 .service-details .image img {
   display: block;
   width: 100%;
-  -webkit-filter: grayscale(100%);
-  -ms-filter: grayscale(100%);
-  -moz-filter: grayscale(100%);
-  filter: grayscale(100%);
+ 
   border-radius: 7px;
   transition: all 0.4s ease;
   -moz-transition: all 0.4s ease;
@@ -12347,10 +12282,7 @@ img.lazy-image.loaded {
 .project-single .image-box img {
   display: block;
   width: 100%;
-  -webkit-filter: grayscale(100%);
-  -ms-filter: grayscale(100%);
-  -moz-filter: grayscale(100%);
-  filter: grayscale(100%);
+ 
   border-radius: 7px;
   transition: all 0.4s ease;
   -moz-transition: all 0.4s ease;
@@ -32150,4 +32082,27 @@ img.lazy-image.loaded {
   .cta-feature__item__btn .thm-btn-thirteen {
     padding: 11px 15px;
   }
+}
+.whatsapp-float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 30px;
+  right: 30px;
+  background-color: #25d366;
+  color: #fff;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 36px;
+  box-shadow: 2px 2px 3px #999;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
+}
+.whatsapp-float:hover {
+  background-color: #128c7e;
+  color: #fff;
+  text-decoration: none;
 }
