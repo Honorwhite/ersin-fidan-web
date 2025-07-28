@@ -286,7 +286,7 @@
       var siteHeader = $(".main-header");
       var sticky_header = $(".main-header .sticky-header");
       if (windowpos > 120) {
-        siteHeader.addClass("fixed-header");
+        siteHeader.addClass("");
         sticky_header.addClass("animated slideInDown");
       } else {
         siteHeader.removeClass("fixed-header");
