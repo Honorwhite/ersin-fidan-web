@@ -565,43 +565,45 @@
                             <div class="form-box wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
                                 <div class="default-form">
                                     <h4>Randevu Alın<span>.</span></h4>
-                                    <form method="post" action="iletisim.html">
+                                    <form method="post" action="#" id="homepage-form">
                                         <div class="form-group">
                                             <div class="field-inner">
-                                                <input type="text" name="username" value=""
+                                                <input type="text" name="adSoyad" value=""
                                                     placeholder="Adınız Soyadınız" required="">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="field-inner">
-                                                <input type="email" name="email" value="" placeholder="Email Address"
+                                                <input type="email" name="email" value="" placeholder="E-posta Adresi"
                                                     required="">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="field-inner">
-                                                <input type="text" name="phone" value="" placeholder="Phone Number"
+                                                <input type="text" name="telefon" value="" placeholder="Telefon Numarası"
                                                     required="">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="field-inner">
-                                                <select class="custom-select-box">
-                                                    <option>Hizmet Seçiniz</option>
-                                                    <option>El Cerrahisi</option>
-                                                    <option>Diz Kalça Protezi</option>
-                                                    <option>Ortopedik Travma</option>
-                                                    <option>Sporcu Yaralanmaları</option>
-                                                    <option>Kontrol Muayenesi</option>
+                                                <select name="hizmetSecin" class="custom-select-box" required="">
+                                                    <option value="">Hizmet Seçiniz</option>
+                                                    <option value="El Cerrahisi">El Cerrahisi</option>
+                                                    <option value="Diz Kalça Protezi">Diz Kalça Protezi</option>
+                                                    <option value="Ortopedik Travma">Ortopedik Travma</option>
+                                                    <option value="Sporcu Yaralanmaları">Sporcu Yaralanmaları</option>
+                                                    <option value="Kontrol Muayenesi">Kontrol Muayenesi</option>
+                                                    <option value="Genel Bilgi">Genel Bilgi</option>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <button class="theme-btn btn-style-one">
+                                            <button type="submit" class="theme-btn btn-style-one" id="homepage-submit-btn">
                                                 <i class="btn-curve"></i>
                                                 <span class="btn-title">Randevu Talep Et</span>
                                             </button>
                                         </div>
+                                        <div id="homepage-form-message" style="margin-top: 15px; padding: 10px; display: none; border-radius: 5px; font-weight: 500; text-align: center;"></div>
                                     </form>
                                 </div>
                             </div>
@@ -804,6 +806,81 @@
     <script src="js/jarallax.min.js"></script>
     <script src="js/custom-script.js"></script>
 
+
+    <!-- reCAPTCHA v3 -->
+    <script src="https://www.google.com/recaptcha/api.js?render=6Lc5vJUrAAAAADssLVjVf3rV91lK20FrT-XEFxQb"></script>
+    
+    <script>
+        // Homepage form submission
+        document.getElementById('homepage-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('homepage-submit-btn');
+            const messageDiv = document.getElementById('homepage-form-message');
+            const originalBtnText = submitBtn.querySelector('.btn-title').textContent;
+            
+            // Disable button and show loading
+            submitBtn.disabled = true;
+            submitBtn.querySelector('.btn-title').textContent = 'Gönderiliyor...';
+            messageDiv.style.display = 'none';
+            
+            try {
+                // Get reCAPTCHA token
+                const token = await grecaptcha.execute('6Lc5vJUrAAAAADssLVjVf3rV91lK20FrT-XEFxQb', {
+                    action: 'randevu_form'
+                });
+                
+                // Get today's date for default appointment date
+                const today = new Date();
+                const tomorrow = new Date(today);
+                tomorrow.setDate(tomorrow.getDate() + 1);
+                const defaultDate = tomorrow.toISOString().split('T')[0];
+                
+                // Prepare form data
+                const formData = {
+                    adSoyad: document.querySelector('#homepage-form input[name="adSoyad"]').value,
+                    telefon: document.querySelector('#homepage-form input[name="telefon"]').value,
+                    email: document.querySelector('#homepage-form input[name="email"]').value,
+                    hizmetSecin: document.querySelector('#homepage-form select[name="hizmetSecin"]').value,
+                    tarih: defaultDate, // Default to tomorrow
+                    sikayet: '', // Empty for homepage form
+                    captcha: token
+                };
+                
+                // Send to API
+                const response = await fetch('https://randevu-backend-3.vercel.app/api/randevu', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    messageDiv.style.backgroundColor = '#d4edda';
+                    messageDiv.style.color = '#155724';
+                    messageDiv.style.border = '1px solid #c3e6cb';
+                    messageDiv.textContent = result.message || 'Randevu talebiniz başarıyla alındı.';
+                    document.getElementById('homepage-form').reset();
+                } else {
+                    throw new Error(result.message || 'Bir hata oluştu.');
+                }
+                
+            } catch (error) {
+                messageDiv.style.backgroundColor = '#f8d7da';
+                messageDiv.style.color = '#721c24';
+                messageDiv.style.border = '1px solid #f5c6cb';
+                messageDiv.textContent = error.message || 'Randevu talebi iletilemedi. Lütfen daha sonra tekrar deneyin.';
+            } finally {
+                // Re-enable button
+                submitBtn.disabled = false;
+                submitBtn.querySelector('.btn-title').textContent = originalBtnText;
+                messageDiv.style.display = 'block';
+            }
+        });
+    </script>
 
     <script src="js/lang.js"></script>
     <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>

@@ -186,11 +186,11 @@
 					<div class="col-lg-8">
 						<div class="form-box">
 							<div class="default-form">
-								<form method="post" action="sendemail.php" id="contact-form">
+								<form method="post" action="#" id="contact-form">
 									<div class="row clearfix">
 										<div class="form-group col-lg-6 col-md-6 col-sm-12">
 											<div class="field-inner">
-												<input type="text" name="username" value="" placeholder="Adınız Soyadınız"
+												<input type="text" name="adSoyad" value="" placeholder="Adınız Soyadınız"
 													required="">
 											</div>
 										</div>
@@ -202,36 +202,42 @@
 										</div>
 										<div class="form-group col-lg-6 col-md-6 col-sm-12">
 											<div class="field-inner">
-												<input type="text" name="phone" value="" placeholder="Telefon Numarası"
+												<input type="text" name="telefon" value="" placeholder="Telefon Numarası"
 													required="">
 											</div>
 										</div>
 										<div class="form-group col-lg-6 col-md-6 col-sm-12">
 											<div class="field-inner">
-												<select name="service" class="custom-select-box">
-													<option>Hizmet Seçiniz</option>
-													<option>El Cerrahisi</option>
-													<option>Diz Kalça Protezi</option>
-													<option>Ortopedik Travma</option>
-													<option>Sporcu Yaralanmaları</option>
-													<option>Kontrol Muayenesi</option>
-													<option>Genel Bilgi</option>
+												<select name="hizmetSecin" class="custom-select-box" required="">
+													<option value="">Hizmet Seçiniz</option>
+													<option value="El Cerrahisi">El Cerrahisi</option>
+													<option value="Diz Kalça Protezi">Diz Kalça Protezi</option>
+													<option value="Ortopedik Travma">Ortopedik Travma</option>
+													<option value="Sporcu Yaralanmaları">Sporcu Yaralanmaları</option>
+													<option value="Kontrol Muayenesi">Kontrol Muayenesi</option>
+													<option value="Genel Bilgi">Genel Bilgi</option>
 												</select>
 											</div>
 										</div>
-										<div class="form-group col-lg-12 col-md-12 col-sm-12">
+										<div class="form-group col-lg-6 col-md-6 col-sm-12">
 											<div class="field-inner">
-												<textarea name="message" placeholder="Mesajınızı Yazın"
-													required=""></textarea>
+												<input type="date" name="tarih" value="" placeholder="Tercih Ettiğiniz Tarih"
+													required="">
+											</div>
+										</div>
+										<div class="form-group col-lg-6 col-md-6 col-sm-12">
+											<div class="field-inner">
+												<textarea name="sikayet" placeholder="Şikayetiniz (Opsiyonel)"></textarea>
 											</div>
 										</div>
 										<div class="form-group col-lg-12 col-md-12 col-sm-12">
-											<button class="theme-btn btn-style-one">
+											<button type="submit" class="theme-btn btn-style-one" id="submit-btn">
 												<i class="btn-curve"></i>
-												<span class="btn-title">Mesaj Gönder</span>
+												<span class="btn-title">Randevu Talebi Gönder</span>
 											</button>
 										</div>
 									</div>
+									<div id="form-message" style="margin-top: 15px; padding: 10px; display: none; border-radius: 5px;"></div>
 								</form>
 							</div>
 						</div>
@@ -398,6 +404,95 @@
 	</script>
 	<script src="js/jquery.easing.min.js"></script>
 	<script src="js/custom-script.js"></script>
+
+	<!-- Custom Styles for Date Input -->
+	<style>
+		input[type="date"] {
+			color: #666;
+			padding: 15px 20px;
+			border: 1px solid #e5e5e5;
+			border-radius: 5px;
+			width: 100%;
+			font-size: 14px;
+			background-color: #fff;
+		}
+		input[type="date"]:focus {
+			border-color: #2C5CC5;
+			outline: none;
+		}
+		#form-message {
+			font-weight: 500;
+			text-align: center;
+		}
+	</style>
+
+	<!-- reCAPTCHA v3 -->
+	<script src="https://www.google.com/recaptcha/api.js?render=6Lc5vJUrAAAAADssLVjVf3rV91lK20FrT-XEFxQb"></script>
+
+	<script>
+		document.getElementById('contact-form').addEventListener('submit', async function(e) {
+			e.preventDefault();
+			
+			const submitBtn = document.getElementById('submit-btn');
+			const messageDiv = document.getElementById('form-message');
+			const originalBtnText = submitBtn.querySelector('.btn-title').textContent;
+			
+			// Disable button and show loading
+			submitBtn.disabled = true;
+			submitBtn.querySelector('.btn-title').textContent = 'Gönderiliyor...';
+			messageDiv.style.display = 'none';
+			
+			try {
+				// Get reCAPTCHA token
+				const token = await grecaptcha.execute('6Lc5vJUrAAAAADssLVjVf3rV91lK20FrT-XEFxQb', {
+					action: 'randevu_form'
+				});
+				
+				// Prepare form data
+				const formData = {
+					adSoyad: document.querySelector('input[name="adSoyad"]').value,
+					telefon: document.querySelector('input[name="telefon"]').value,
+					email: document.querySelector('input[name="email"]').value,
+					hizmetSecin: document.querySelector('select[name="hizmetSecin"]').value,
+					tarih: document.querySelector('input[name="tarih"]').value,
+					sikayet: document.querySelector('textarea[name="sikayet"]').value,
+					captcha: token
+				};
+				
+				// Send to API
+				const response = await fetch('https://randevu-backend-3.vercel.app/api/randevu', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify(formData)
+				});
+				
+				const result = await response.json();
+				
+				if (result.success) {
+					messageDiv.style.backgroundColor = '#d4edda';
+					messageDiv.style.color = '#155724';
+					messageDiv.style.border = '1px solid #c3e6cb';
+					messageDiv.textContent = result.message || 'Randevu talebiniz başarıyla alındı.';
+					document.getElementById('contact-form').reset();
+				} else {
+					throw new Error(result.message || 'Bir hata oluştu.');
+				}
+				
+			} catch (error) {
+				messageDiv.style.backgroundColor = '#f8d7da';
+				messageDiv.style.color = '#721c24';
+				messageDiv.style.border = '1px solid #f5c6cb';
+				messageDiv.textContent = error.message || 'Randevu talebi iletilemedi. Lütfen daha sonra tekrar deneyin.';
+			} finally {
+				// Re-enable button
+				submitBtn.disabled = false;
+				submitBtn.querySelector('.btn-title').textContent = originalBtnText;
+				messageDiv.style.display = 'block';
+			}
+		});
+	</script>
 
 	<script src="js/lang.js"></script>
 	<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
