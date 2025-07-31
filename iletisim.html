@@ -219,13 +219,12 @@
 												</select>
 											</div>
 										</div>
-										<div class="form-group col-lg-6 col-md-6 col-sm-12">
+										<div class="form-group col-lg-6 col-md-6 col-sm-12" style="display: none;">
 											<div class="field-inner">
-												<input type="date" name="tarih" value="" placeholder="Tercih Ettiğiniz Tarih"
-													required="">
+												<input type="date" name="tarih" value="" placeholder="Tercih Ettiğiniz Tarih">
 											</div>
 										</div>
-										<div class="form-group col-lg-6 col-md-6 col-sm-12">
+										<div class="form-group col-lg-12 col-md-12 col-sm-12">
 											<div class="field-inner">
 												<textarea name="sikayet" placeholder="Şikayetiniz (Opsiyonel)"></textarea>
 											</div>
@@ -424,6 +423,11 @@
 			font-weight: 500;
 			text-align: center;
 		}
+		textarea[name="sikayet"] {
+			min-height: 120px !important;
+			height: 120px !important;
+			resize: vertical;
+		}
 	</style>
 
 	<!-- reCAPTCHA v3 -->
@@ -448,13 +452,17 @@
 					action: 'randevu_form'
 				});
 				
+				// Get today's date
+				const today = new Date();
+				const todayString = today.toISOString().split('T')[0];
+				
 				// Prepare form data
 				const formData = {
 					adSoyad: document.querySelector('input[name="adSoyad"]').value,
 					telefon: document.querySelector('input[name="telefon"]').value,
 					email: document.querySelector('input[name="email"]').value,
 					hizmetSecin: document.querySelector('select[name="hizmetSecin"]').value,
-					tarih: document.querySelector('input[name="tarih"]').value,
+					tarih: todayString,
 					sikayet: document.querySelector('textarea[name="sikayet"]').value,
 					captcha: token
 				};
