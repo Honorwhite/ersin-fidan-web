@@ -2576,7 +2576,7 @@ img.lazy-image.loaded {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
- 
+
   -webkit-transform: scale(1);
   transform: scale(1);
 }
@@ -2746,7 +2746,7 @@ img.lazy-image.loaded {
   background-size: cover;
   background-position: left top;
   border-radius: 50%;
- 
+
   z-index: 2;
   opacity: 0;
   -webkit-transform: translateX(100%);
@@ -3859,7 +3859,7 @@ img.lazy-image.loaded {
 .about-section .image-column .image-block img {
   display: block;
   width: 100%;
- 
+
   border-radius: 7px;
 }
 
@@ -4016,7 +4016,7 @@ img.lazy-image.loaded {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
- 
+
 }
 
 .live-section .main-image-box .inner {
@@ -4319,7 +4319,7 @@ img.lazy-image.loaded {
 .we-do-section .featured-block .image img {
   display: block;
   width: 100%;
- 
+
   border-radius: 7px;
 }
 
@@ -4655,7 +4655,7 @@ img.lazy-image.loaded {
   display: block;
   width: 100%;
   height: auto;
- 
+
   -webkit-transition: all 300ms ease;
   transition: all 300ms ease;
   border-radius: 7px;
@@ -4872,7 +4872,7 @@ img.lazy-image.loaded {
   background-position: center center;
   background-size: cover;
   background-attachment: fixed;
- 
+
   opacity: 0.3;
 }
 
@@ -5117,7 +5117,7 @@ img.lazy-image.loaded {
 .trusted-section .featured-block-two .image img {
   display: block;
   width: 100%;
- 
+
   border-radius: 7px;
 }
 
@@ -5508,7 +5508,7 @@ img.lazy-image.loaded {
   background-position: center center;
   background-size: cover;
   background-attachment: fixed;
- 
+
   opacity: 0.3;
 }
 
@@ -5923,7 +5923,7 @@ img.lazy-image.loaded {
 .agency-section .featured-block-two .image img {
   display: block;
   width: 100%;
- 
+
   border-radius: 50%;
 }
 
@@ -6002,7 +6002,7 @@ img.lazy-image.loaded {
 .news-block .image-box img {
   display: block;
   width: 100%;
- 
+
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
   border-radius: 7px;
@@ -6128,7 +6128,7 @@ img.lazy-image.loaded {
 .news-block-two .image-box img {
   display: block;
   width: 100%;
- 
+
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
   border-radius: 7px;
@@ -7729,9 +7729,7 @@ img.lazy-image.loaded {
   border-radius: 50%;
 }
 
-.why-us-section .left-col .image-box:hover img {
-
-}
+.why-us-section .left-col .image-box:hover img {}
 
 .why-us-section .left-col .image-box:before {
   content: "";
@@ -8009,7 +8007,7 @@ img.lazy-image.loaded {
 .testi-block .info .image img {
   display: block;
   width: 100%;
- 
+
   border-radius: 7px;
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
@@ -8657,7 +8655,7 @@ img.lazy-image.loaded {
   background-repeat: no-repeat;
   background-position: top center;
   background-size: cover;
- 
+
   opacity: 0.3;
   background-attachment: fixed;
 }
@@ -9150,7 +9148,7 @@ img.lazy-image.loaded {
 .get-quote-section .featured-block .image img {
   display: block;
   width: 100%;
- 
+
   border-radius: 7px;
 }
 
@@ -9199,9 +9197,10 @@ img.lazy-image.loaded {
 .get-quote-section .counter .counter-image img {
   display: block;
   width: 50%;
- 
+
   border-radius: 7px;
 }
+
 @media (max-width: 768px) {
   .get-quote-section .counter .counter-image:before {
     content: "";
@@ -9214,11 +9213,12 @@ img.lazy-image.loaded {
     border-radius: 7px;
   }
 }
+
 @media (max-width: 768px) {
   .get-quote-section .counter .counter-image:img {
     display: block;
     width: 100%;
-   
+
     border-radius: 7px;
   }
 }
@@ -9335,7 +9335,7 @@ img.lazy-image.loaded {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
- 
+
   opacity: 0.1;
 }
 
@@ -9563,7 +9563,7 @@ img.lazy-image.loaded {
 .discover-block .image-box img {
   display: block;
   width: 100%;
- 
+
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   border-radius: 7px;
@@ -9769,7 +9769,7 @@ img.lazy-image.loaded {
   display: block;
   width: auto;
   max-width: none;
- 
+
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   border-radius: 7px;
@@ -9906,7 +9906,7 @@ img.lazy-image.loaded {
 .work-tabs .tabs-content .image img {
   display: block;
   width: 100%;
- 
+
   border-radius: 7px;
 }
 
@@ -9992,7 +9992,7 @@ img.lazy-image.loaded {
   background-position: center center;
   background-size: cover;
   background-attachment: fixed;
- 
+
   opacity: 0.3;
 }
 
@@ -10149,7 +10149,7 @@ img.lazy-image.loaded {
 .about-section-two .image-box .image img {
   display: block;
   width: 100%;
- 
+
   border-radius: 7px;
 }
 
@@ -10904,7 +10904,7 @@ img.lazy-image.loaded {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
- 
+
 }
 
 .page-banner .shape-1 {
@@ -11667,7 +11667,7 @@ img.lazy-image.loaded {
   display: block;
   width: 100%;
   border-radius: 50%;
- 
+
   transition: all 0.4s ease;
   -moz-transition: all 0.4s ease;
   -webkit-transition: all 0.4s ease;
@@ -11850,7 +11850,7 @@ img.lazy-image.loaded {
 .post-details .image-box img {
   display: block;
   width: 100%;
- 
+
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
   border-radius: 7px;
@@ -12069,7 +12069,7 @@ img.lazy-image.loaded {
   height: 90px;
   display: block;
   border-radius: 50%;
- 
+
 }
 
 .comments-area .comment-box .info {
@@ -12157,7 +12157,7 @@ img.lazy-image.loaded {
 .service-details .image img {
   display: block;
   width: 100%;
- 
+
   border-radius: 7px;
   transition: all 0.4s ease;
   -moz-transition: all 0.4s ease;
@@ -12276,7 +12276,7 @@ img.lazy-image.loaded {
 .project-single .image-box img {
   display: block;
   width: 100%;
- 
+
   border-radius: 7px;
   transition: all 0.4s ease;
   -moz-transition: all 0.4s ease;
@@ -32077,6 +32077,7 @@ img.lazy-image.loaded {
     padding: 11px 15px;
   }
 }
+
 .whatsapp-float {
   position: fixed;
   width: 60px;
@@ -32095,11 +32096,13 @@ img.lazy-image.loaded {
   justify-content: center;
   transition: background 0.3s;
 }
+
 .whatsapp-float:hover {
   background-color: #128c7e;
   color: #fff;
   text-decoration: none;
 }
+
 .banner-carousel .slide-item.no-dark .image-layer::before,
 .banner-carousel .slide-item.no-dark .image-layer::after,
 .banner-carousel .slide-item.no-dark::before,
@@ -32110,32 +32113,102 @@ img.lazy-image.loaded {
   opacity: 0 !important;
   display: none !important;
 }
+
 .banner-carousel .active .slide-item.no-dark .image-layer {
   -webkit-transform: scale(1) !important;
   transform: scale(1) !important;
   -webkit-transition: none !important;
   transition: none !important;
 }
-.desktop-only { display: block; }
-.mobile-only { display: none; }
+
+.desktop-only {
+  display: block;
+}
+
+.mobile-only {
+  display: none;
+}
 
 @media (max-width: 767px) {
-  .desktop-only { display: none !important; }
-  .mobile-only { display: block !important; }
+  .desktop-only {
+    display: none !important;
+  }
+
+  .mobile-only {
+    display: block !important;
+  }
 }
 
 .header-overlay {
   position: fixed;
-  top: 0; /* header ile hizalı */
+  top: 0;
+  /* header ile hizalı */
   left: 0;
   width: 100%;
-  height: 100px; /* header yüksekliğine göre ayarlanabilir */
-  background: rgba(0,0,0,0.5);
+  height: 100px;
+  /* header yüksekliğine göre ayarlanabilir */
+  background: rgba(0, 0, 0, 0.5);
   z-index: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   backdrop-filter: blur(12px);
--webkit-backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
+
+/* Floating Mobile Contact Bar - Added for Conversion Optimization */
+.mobile-contact-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: #fff;
+  display: none;
+  z-index: 9999;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  grid-template-columns: 1fr 1fr;
+}
+
+.mobile-contact-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none !important;
+  font-weight: 600;
+  font-size: 16px;
+  gap: 8px;
+  font-family: var(--thm-font);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.mobile-contact-btn.call {
+  background: #2c5cc5;
+  color: #fff !important;
+}
+
+.mobile-contact-btn.whatsapp {
+  background: #25d366;
+  color: #fff !important;
+}
+
+.mobile-contact-btn i {
+  font-size: 18px;
+}
+
+@media screen and (max-width: 767px) {
+  .mobile-contact-bar {
+    display: grid;
+  }
+
+  .whatsapp-float {
+    display: none;
+    bottom: 80px !important;
+  }
+
+  body {
+    padding-bottom: 60px !important;
+  }
+}
