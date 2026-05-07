@@ -1511,23 +1511,7 @@
       slidesToScroll: 1
     });
   }
-  /*if ($(".testimonial-twelev__carousel").length) {
-    $(".testimonial-twelev__carousel").owlCarousel({
-      loop: false,
-      margin: 0,
-      center: false,
-      nav: false,
-      dotsContainer: "#testimonial-twelev__thumb",
-      dots: true,
-      smartSpeed: 700,
-      autoplay: 5000,
-      items: 1
-    });
-    let owlCarouselThumb = $(this).data("thumb-elm");
-    $(owlCarouselThumb).find(".owl-dot").on("click", function () {
-      $(this).trigger('to.owl.carousel', [$(this).index(), 300]);
-    });
-  }*/
+
   if ($(".testimonial-thirteen__carousel").length) {
     $(".testimonial-thirteen__carousel").owlCarousel({
       loop: false,
@@ -1594,4 +1578,141 @@ document.addEventListener('DOMContentLoaded', function () {
   if (!document.querySelector('.mobile-contact-bar')) {
     document.body.insertAdjacentHTML('beforeend', contactBarHTML);
   }
+
+  // Register Service Worker for PWA
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js').then(() => {
+      console.log('Service Worker Registered');
+    });
+  }
+
+  // --- PWA Installation Logic ---
+  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+  const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+
+  // Don't show if already installed or on desktop
+  if (isStandalone || window.innerWidth > 767) return;
+
+  const pwaBarHTML = `
+    <div class="pwa-install-bar" id="pwaInstallBar">
+        <div class="pwa-install-content">
+            <i class="fa fa-mobile-alt"></i>
+            <span>Uygulamamızı yükleyerek daha hızlı erişin!</span>
+        </div>
+        <button class="pwa-install-btn" id="pwaInstallBtn">Yükle</button>
+        <button class="pwa-close-btn" id="pwaCloseBar">
+            <i class="fa fa-times"></i>
+        </button>
+    </div>
+
+    <div class="ios-pwa-popup" id="iosPwaPopup">
+        <div class="ios-pwa-content">
+            <h3>Uygulamayı Yükle</h3>
+            <p>Dr. Ersin Fidan uygulamasını ana ekranınıza eklemek için şu adımları takip edin:</p>
+            <div class="ios-steps">
+                <div class="ios-step">
+                    <i class="fa fa-share-square"></i>
+                    <span>Alt menüdeki <strong>"Paylaş"</strong> butonuna dokunun.</span>
+                </div>
+                <div class="ios-step">
+                    <i class="fa fa-plus-square"></i>
+                    <span>Açılan menüden <strong>"Ana Ekrana Ekle"</strong>yi seçin.</span>
+                </div>
+            </div>
+            <button class="ios-popup-close" id="iosPopupClose">Tamam</button>
+        </div>
+    </div>
+  `;
+
+  document.body.insertAdjacentHTML('beforeend', pwaBarHTML);
+
+  const pwaBar = document.getElementById('pwaInstallBar');
+  const pwaInstallBtn = document.getElementById('pwaInstallBtn');
+  const pwaCloseBar = document.getElementById('pwaCloseBar');
+  const iosPopup = document.getElementById('iosPwaPopup');
+  const iosPopupClose = document.getElementById('iosPopupClose');
+
+  // Android: beforeinstallprompt
+  let deferredPrompt;
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    // Show the bar after a short delay
+    setTimeout(() => {
+      if (!sessionStorage.getItem('pwa_closed')) {
+        pwaBar.classList.add('active');
+      }
+    }, 2000);
+  });
+
+  // iOS: Show bar immediately
+  if (isIOS) {
+    setTimeout(() => {
+      if (!sessionStorage.getItem('pwa_closed')) {
+        pwaBar.classList.add('active');
+      }
+    }, 2000);
+  }
+
+  pwaInstallBtn.addEventListener('click', () => {
+    if (isIOS) {
+      iosPopup.classList.add('active');
+    } else if (deferredPrompt) {
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then((choiceResult) => {
+        if (choiceResult.outcome === 'accepted') {
+          pwaBar.classList.remove('active');
+        }
+        deferredPrompt = null;
+      });
+    } else {
+      // Fallback for Android browsers that don't support the prompt or already handled
+      alert('Uygulamayı yüklemek için tarayıcı menüsünden "Uygulamayı Yükle" veya "Ana Ekrana Ekle" seçeneğine dokunun.');
+    }
+  });
+
+  pwaCloseBar.addEventListener('click', () => {
+    pwaBar.classList.remove('active');
+    sessionStorage.setItem('pwa_closed', 'true');
+  });
+
+  iosPopupClose.addEventListener('click', () => {
+    iosPopup.classList.remove('active');
+  });
+
+  // --- Mobile Menu PWA Button Injection ---
+  const sideMenuSocials = document.querySelectorAll('.side-menu__social');
+  const pwaMenuBtnHTML = `
+    <a href="javascript:void(0)" class="pwa-menu-btn" title="Uygulamayı Yükle">
+        <i class="fa fa-mobile-alt"></i>
+    </a>
+  `;
+
+  sideMenuSocials.forEach(social => {
+    // Only inject if it doesn't already have one
+    if (!social.querySelector('.pwa-menu-btn')) {
+      social.insertAdjacentHTML('beforeend', pwaMenuBtnHTML);
+    }
+  });
+
+  // Handle click on menu button
+  document.addEventListener('click', (e) => {
+    const menuBtn = e.target.closest('.pwa-menu-btn');
+    if (menuBtn) {
+      e.preventDefault();
+      if (isIOS) {
+        iosPopup.classList.add('active');
+      } else if (deferredPrompt) {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then((choiceResult) => {
+          if (choiceResult.outcome === 'accepted') {
+            pwaBar.classList.remove('active');
+          }
+          deferredPrompt = null;
+        });
+      } else {
+        alert('Uygulamayı yüklemek için tarayıcı menüsünden "Uygulamayı Yükle" veya "Ana Ekrana Ekle" seçeneğine dokunun.');
+      }
+    }
+  });
 });
