@@ -15,8 +15,8 @@
         $("html, body")
           .stop()
           .animate({
-              scrollTop: $(target.attr("href")).offset().top - headerH + "px"
-            },
+            scrollTop: $(target.attr("href")).offset().top - headerH + "px"
+          },
             1200,
             "easeInOutExpo"
           );
@@ -199,8 +199,8 @@
       if ($(this).next().val() > 1) {
         if ($(this).next().val() > 1)
           $(this)
-          .next()
-          .val(+$(this).next().val() - 1);
+            .next()
+            .val(+$(this).next().val() - 1);
       }
     });
   }
@@ -209,20 +209,20 @@
     let mainDate = $(".countdown-one__list").data("deadline-date");
     let yearsCondition =
       undefined == $(".countdown-one__list").data("enable-years") ?
-      false :
-      $(".countdown-one__list").data("enable-years");
+        false :
+        $(".countdown-one__list").data("enable-years");
     let daysCondition =
       undefined == $(".countdown-one__list").data("enable-days") ?
-      true :
-      $(".countdown-one__list").data("enable-days");
+        true :
+        $(".countdown-one__list").data("enable-days");
     let leadingZeros = $(".countdown-one__list").data("leading-zeros");
     console.log(daysCondition);
     let deadLine =
       "dynamicDate" == mainDate ?
-      new Date(Date.parse(new Date()) + 31 * 24 * 60 * 60 * 1000) :
-      "dynamicHour" == mainDate ?
-      new Date(Date.parse(new Date()) + 24 * 60 * 60 * 1000) :
-      mainDate;
+        new Date(Date.parse(new Date()) + 31 * 24 * 60 * 60 * 1000) :
+        "dynamicHour" == mainDate ?
+          new Date(Date.parse(new Date()) + 24 * 60 * 60 * 1000) :
+          mainDate;
 
     $(".countdown-one__list").countdown({
       date: deadLine,
@@ -439,6 +439,201 @@
       }
     });
   }
+
+  // Instagram Section Logic
+  const instaData = {
+    1: {
+      img: 'images/sosyal/post1.jpg',
+      link: 'https://www.instagram.com/p/DHJMh75NWVX/',
+      content: `👨‍⚕️ <strong>El ve Bilek Ağrılarınızı Hafife Almayın! 🤲⚠️</strong><br><br>
+      Günlük hayatta sık kullandığımız el ve bileklerdeki ağrılar, ciddi sağlık sorunlarının habercisi olabilir!🚨<br><br>
+      Olası Nedenler:<br>
+      🔹 Karpal Tünel Sendromu (Sinir sıkışması)<br>
+      🔹 Tendinit (Tendon iltihabı)<br>
+      🔹 Kireçlenme (Osteoartrit)<br>
+      🔹 Travmalar ve Zorlanmalar<br>
+      🔹 Romatoid Artrit<br><br>
+      🩺 Ne Yapmalısınız?<br>
+      ✔️ Tekrarlayan hareketlerden kaçının.<br>
+      ✔️ Bileğinizi destekleyen ateller kullanın.<br>
+      ✔️ Ağrıyan bölgeye buz uygulayarak şişliği azaltın.<br>
+      ✔️ Geçmeyen ağrılar için mutlaka bir uzmana danışın!<br><br>
+      🔗 Erken müdahale ile el ve bilek sağlığınızı koruyabilirsiniz! 🌟`
+    },
+    2: {
+      img: 'images/sosyal/post2.jpg',
+      link: 'https://www.instagram.com/p/DW9IZCHjdMI/',
+      content: `Kopan bir parmak her zaman kaybedilmiş değildir.<br><br>
+      Günümüzde mikrocerrahi teknikleri sayesinde, uygun koşullarda kopan uzuvların yeniden yerine dikilmesi mümkün olabilmektedir.<br><br>
+      Ancak burada en kritik nokta: zaman.<br>
+      İlk saatlerde yapılan doğru müdahale, tedavi başarısını doğrudan etkiler.<br><br>
+      ❗ En sık yapılan hata ise kopan parçanın yanlış taşınmasıdır.<br>
+      Doğru yaklaşım:<br>
+      • Nemli ve temiz bir bezle sarılması<br>
+      • Su geçirmez bir torbaya konulması<br>
+      • Bu torbanın buzlu su içerisine yerleştirilmesi<br>
+      🚫 Direkt buz temasından kaçınılmalıdır<br><br>
+      Mikrocerrahi; yalnızca kopma durumlarında değil, damar ve sinir yaralanmaları ile kompleks el travmalarında da önemli bir tedavi yöntemidir.<br><br>
+      Unutmayın;<br>
+      erken ve doğru müdahale, fonksiyon kaybını önleyebilir ve yaşam kalitesini koruyabilir.<br><br>
+      📞 Detaylı bilgi ve değerlendirme için iletişime geçebilirsiniz.<br><br>
+      ⸻<br><br>
+      Bu içerik bilgilendirme amaçlıdır. Tanı ve tedavi için mutlaka hekiminize başvurunuz.`
+    },
+    3: {
+      img: 'images/sosyal/post3.jpg',
+      link: 'https://www.instagram.com/p/DHbUq1VtjiN/',
+      content: `💪 Omuz Sağlığınızı Korumak İçin 5 Kritik Bilgi! 🚨 Kaydır ve Öğren! 👇<br><br>
+      ⸻<br><br>
+      📌 1. Omuz Ağrınız Sürekli mi? Dikkat!<br><br>
+      🔹 “Günlük hareketlerden sonra biraz ağrı normaldir” diye düşünüyor olabilirsiniz…<br>
+      🔹 Ama tekrarlayan veya geceleri artan ağrılar, rotator manşet yırtığı veya omuz sıkışma sendromu belirtisi olabilir!<br><br>
+      ⸻<br><br>
+      📌 2. Omuz Sıkışma Sendromu Nedir?<br><br>
+      🔹 Kolunuzu yukarı kaldırırken şiddetli ağrı ve güçsüzlük mü hissediyorsunuz?<br>
+      🔹 Bu durum, omuz eklemindeki kasların sıkışması sonucu oluşur ve tedavi edilmezse ilerleyebilir!<br>
+      🔹 Öneri: Aşırı yüklenmeden kaçının, omuz kaslarınızı güçlendiren egzersizler yapın.<br><br>
+      ⸻<br><br>
+      📌 3. Omuz Çıkığı Ciddiye Alınmalı mı?<br><br>
+      🔹 Tekrar eden omuz çıkıkları, eklem bağlarının zayıflamasıyla kalıcı hale gelebilir!<br>
+      🔹 Sporcularda ve aktif yaşam sürenlerde sık görülür, tedavi edilmezse kronik instabiliteye yol açabilir.<br>
+      🔹 Öneri: İlk çıkık sonrası mutlaka ortopedi uzmanına danışın ve rehabilitasyonu ihmal etmeyin.<br><br>
+      ⸻<br><br>
+      📌 4. Donuk Omuz Sendromu: Hareket Kısıtlılığına Dikkat!<br><br>
+      🔹 Omuz hareketleriniz zamanla kısıtlanıyor mu? Kolunuzu kaldırırken zorlanıyor musunuz?<br>
+      🔹 Donuk omuz, eklem kapsülünün iltihaplanmasıyla hareket kaybına neden olan bir rahatsızlıktır.<br>
+      🔹 Öneri: Erken dönemde fizik tedaviye başlamak ve omuzunuzu hareketsiz bırakmamak çok önemlidir!<br><br>
+      ⸻<br><br>
+      📌 5. Omuz Ağrılarının Çözümü Var mı?<br><br>
+      🔹 Fizik tedavi, PRP ve cerrahi müdahale gibi birçok çözüm mevcut!<br>
+      🔹 Tedavide geç kalmamak için erken teşhis hayati önem taşır.<br><br>
+      ⸻<br><br>
+      💬 Omuz ağrıları yaşam kalitenizi düşürmesin! Doğru tedavi ile sağlıklı hareket edin.<br>
+      Daha fazla bilgi ve randevu için bizimle iletişime geçin! 🚀<br><br>
+      📩 Randevu ve detaylı bilgi için: @op.dr.ersinfidan`
+    },
+    4: {
+      img: 'images/sosyal/post4.jpg',
+      link: 'https://www.instagram.com/p/DHv0_acN2fl/',
+      content: `“Sürekli El Bileği Ağrısı Normal mi? 🤲⚠️”<br><br>
+      El bileğinizde sürekli ağrı, uyuşma veya güçsüzlük hissediyorsanız, bu durumu hafife almayın! Kronik el bileği ağrısının altında farklı sağlık sorunları yatıyor olabilir.<br><br>
+      🚨 Olası Nedenler:<br>
+      🔹 Karpal Tünel Sendromu (Sinir sıkışması)<br>
+      🔹 Tendinit (Tendon iltihabı)<br>
+      🔹 Eklem Kireçlenmesi (Osteoartrit)<br>
+      🔹 Travmalar ve Zorlanmalar<br>
+      🔹 Ganglion Kisti (Bilekte şişlik ile kendini gösterir)<br><br>
+      🩺 Ne Yapmalısınız?<br>
+      ✔️ Tekrarlayan hareketleri azaltın, bileğinizi dinlendirin.<br>
+      ✔️ Buz uygulayarak iltihaplanmayı önleyin.<br>
+      ✔️ Bileği destekleyen ateller kullanın.<br>
+      ✔️ Geçmeyen ağrılar için bir uzmana danışın!<br><br>
+      🔗 Unutmayın: Sürekli devam eden ağrı bir hastalığın habercisi olabilir, erken müdahale ile ciddi sorunların önüne geçebilirsiniz! 🌟`
+    },
+    5: {
+      img: 'images/sosyal/post5.jpg',
+      link: 'https://www.instagram.com/p/DH8T1uPtBkD/',
+      content: `“Diz Ağrınızın Sebebi Ne Olabilir? 🦵⚠️”<br><br>
+      Diz ağrısı, günlük yaşam kalitesini düşüren yaygın bir sorundur. Ağrının kaynağını bilmek, doğru tedavi için çok önemlidir!<br><br>
+      🚨 Olası Nedenler:<br>
+      🔹 Menisküs Yırtığı – Dizde kilitlenme ve ani ağrı<br>
+      🔹 Ön Çapraz Bağ Yaralanması – Spor sırasında dizde kopma hissi<br>
+      🔹 Kireçlenme (Osteoartrit) – Sabah tutukluğu ve hareketle artan ağrı<br>
+      🔹 Kondromalazi Patella (Koşucu Dizi) – Merdiven çıkarken ağrı<br>
+      🔹 Romatoid Artrit – Sabahları sertlik ve şişlik<br>
+      🔹 Patellar Tendinit – Diz kapağının altında ağrı<br><br>
+      🩺 Ne Yapmalısınız?<br>
+      ✔️ Dizi zorlayan hareketlerden kaçının.<br>
+      ✔️ Buz uygulayarak şişliği azaltın.<br>
+      ✔️ Diz kaslarını güçlendiren egzersizler yapın.<br>
+      ✔️ Şikayetler devam ediyorsa bir uzmana danışın!<br><br>
+      🔗 Unutmayın: Erken teşhis ile diz sağlığınızı koruyabilirsiniz! 🌟`
+    },
+    6: {
+      img: 'images/sosyal/post6.jpg',
+      link: 'https://www.instagram.com/p/DHbUq1VtjiN/',
+      content: `💪 Omuz Sağlığınızı Korumak İçin 5 Kritik Bilgi! 🚨 Kaydır ve Öğren! 👇<br><br>
+      ⸻<br><br>
+      📌 1. Omuz Ağrınız Sürekli mi? Dikkat!<br><br>
+      🔹 “Günlük hareketlerden sonra biraz ağrı normaldir” diye düşünüyor olabilirsiniz…<br>
+      🔹 Ama tekrarlayan veya geceleri artan ağrılar, rotator manşet yırtığı veya omuz sıkışma sendromu belirtisi olabilir!<br><br>
+      ⸻<br><br>
+      📌 2. Omuz Sıkışma Sendromu Nedir?<br><br>
+      🔹 Kolunuzu yukarı kaldırırken şiddetli ağrı ve güçsüzlük mü hissediyorsunuz?<br>
+      🔹 Bu durum, omuz eklemindeki kasların sıkışması sonucu oluşur ve tedavi edilmezse ilerleyebilir!<br>
+      🔹 Öneri: Aşırı yüklenmeden kaçının, omuz kaslarınızı güçlendiren egzersizler yapın.<br><br>
+      ⸻<br><br>
+      📌 3. Omuz Çıkığı Ciddiye Alınmalı mı?<br><br>
+      🔹 Tekrar eden omuz çıkıkları, eklem bağlarının zayıflamasıyla kalıcı hale gelebilir!<br>
+      🔹 Sporcularda ve aktif yaşam sürenlerde sık görülür, tedavi edilmezse kronik instabiliteye yol açabilir.<br>
+      🔹 Öneri: İlk çıkık sonrası mutlaka ortopedi uzmanına danışın ve rehabilitasyonu ihmal etmeyin.<br><br>
+      ⸻<br><br>
+      📌 4. Donuk Omuz Sendromu: Hareket Kısıtlılığına Dikkat!<br><br>
+      🔹 Omuz hareketleriniz zamanla kısıtlanıyor mu? Kolunuzu kaldırırken zorlanıyor musunuz?<br>
+      🔹 Donuk omuz, eklem kapsülünün iltihaplanmasıyla hareket kaybına neden olan bir rahatsızlıktır.<br>
+      🔹 Öneri: Erken dönemde fizik tedaviye başlamak ve omuzunuzu hareketsiz bırakmamak çok önemlidir!<br><br>
+      ⸻<br><br>
+      📌 5. Omuz Ağrılarının Çözümü Var mı?<br><br>
+      🔹 Fizik tedavi, PRP ve cerrahi müdahale gibi birçok çözüm mevcut!<br>
+      🔹 Tedavide geç kalmamak için erken teşhis hayati önem taşır.<br><br>
+      ⸻<br><br>
+      💬 Omuz ağrıları yaşam kalitenizi düşürmesin! Doğru tedavi ile sağlıklı hareket edin.<br>
+      Daha fazla bilgi ve randevu için bizimle iletişime geçin! 🚀<br><br>
+      📩 Randevu ve detaylı bilgi için: @op.dr.ersinfidan`
+    },
+    7: {
+      img: 'images/sosyal/post7.jpg',
+      link: 'https://www.instagram.com/p/DILeB66tQVC/',
+      content: `“Acil Müdahalelerde 7/24 Yanınızdayız! 🚨🩺”<br><br>
+      El, bilek, diz ve travma gibi acil durumlarda her saniye önemlidir!<br>
+      Bu yüzden 7 gün 24 saat boyunca uzman ekibimizle yanınızdayız.<br><br>
+      Ani gelişen kesiler, damar - sinir yaralanmaları, kırıklar, çıkıklar ya da spor yaralanmaları gibi durumlarda zamanında müdahale, uzvun kurtarılmasını, fonksiyonun korunmasını ve iyileşme sürecinin kısalmasını sağlar.<br><br>
+      📞 İhtiyacınız olduğunda bir telefon kadar yakınız.`
+    }
+  };
+
+
+  window.openInstaModal = function (id) {
+    const post = instaData[id];
+    if (post) {
+      $('#modalInstaImage').attr('src', post.img);
+      $('#modalInstaBody').html(post.content);
+      $('.insta-modal-btn').attr('href', post.link); // Set specific link
+      $('#instaModal').addClass('active');
+      $('body').css('overflow', 'hidden');
+    }
+  };
+
+  window.closeInstaModal = function () {
+    $('#instaModal').removeClass('active');
+    $('body').css('overflow', '');
+  };
+
+  // Close on ESC
+  $(document).on('keydown', function (e) {
+    if (e.keyCode === 27) closeInstaModal();
+  });
+
+  // Instagram Carousel Init
+  if ($(".instagram-carousel").length) {
+    $(".instagram-carousel").owlCarousel({
+      loop: true,
+      margin: 0,
+      nav: false,
+      smartSpeed: 700,
+      autoplay: true,
+      autoplayTimeout: 4000,
+      dots: false,
+      responsive: {
+        0: { items: 2 },
+        600: { items: 3 },
+        992: { items: 4 },
+        1200: { items: 5 }
+      }
+    });
+  }
+
+
 
   //portfolio horizontal
   if ($(".portfolio-horizontal__carousel").length) {
@@ -851,8 +1046,8 @@
         var percent = el.data("percent");
         $(el).css("width", percent).addClass("counted");
       }, {
-        accY: -50
-      }
+      accY: -50
+    }
     );
   }
 
@@ -882,8 +1077,8 @@
           });
         }
       }, {
-        accY: 0
-      }
+      accY: 0
+    }
     );
   }
 
@@ -919,8 +1114,8 @@
           }
         });
       }, {
-        accY: 0
-      }
+      accY: 0
+    }
     );
   }
 
@@ -1055,8 +1250,8 @@
       var target = $(this).attr("data-target");
       // animate
       $("html, body").animate({
-          scrollTop: $(target).offset().top
-        },
+        scrollTop: $(target).offset().top
+      },
         1000
       );
 
@@ -1100,8 +1295,8 @@
         $("html, body")
           .stop()
           .animate({
-              scrollTop: $(target.attr("href")).offset().top - headerH + "px"
-            },
+            scrollTop: $(target.attr("href")).offset().top - headerH + "px"
+          },
             1200,
             "easeInOutExpo"
           );
@@ -1142,8 +1337,8 @@
   }
 
   /* ==========================================================================
-	   When document is Scrollig, do
-	   ========================================================================== */
+     When document is Scrollig, do
+     ========================================================================== */
 
   $(window).on("scroll", function () {
     headerStyle();
@@ -1160,14 +1355,14 @@
   });
 
   /* ==========================================================================
-	   When document is Resized, do
-	   ========================================================================== */
+     When document is Resized, do
+     ========================================================================== */
 
-  $(window).on("resize", function () {});
+  $(window).on("resize", function () { });
 
   /* ==========================================================================
-	   When document is loading, do
-	   ========================================================================== */
+     When document is loading, do
+     ========================================================================== */
 
   $(window).on("load", function () {
     // swiper slider
@@ -1239,8 +1434,8 @@
   });
 
   /* ==========================================================================
-	   update 15-08-2024 (Mosharof)
-	========================================================================== */
+     update 15-08-2024 (Mosharof)
+  ========================================================================== */
   if ($(".project-twelev__carousel").length) {
     $(".project-twelev__carousel").owlCarousel({
       loop: true,
@@ -1375,7 +1570,28 @@
           slidesToShow: 1,
           slidesToScroll: 1
         }
-      }, ]
+      },]
     });
   }
 })(window.jQuery);
+
+document.addEventListener('DOMContentLoaded', function () {
+  const contactBarHTML = `
+        <div class="mobile-contact-bar">
+            <a href="tel:05322664335" class="mobile-contact-btn call">
+                <i class="fa fa-phone"></i> Hemen Ara
+            </a>
+            <a href="https://wa.me/905322664335" class="mobile-contact-btn whatsapp">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=Op.+Dr.+Ersin+Fidan+|+Adana+El+Cerrahisi+|+Mikrocerrahi" target="_blank" class="mobile-contact-btn location">
+                <i class="fa fa-map-marker-alt"></i> Konum
+            </a>
+        </div>
+    `;
+
+  // Check if bar already exists to avoid duplicates
+  if (!document.querySelector('.mobile-contact-bar')) {
+    document.body.insertAdjacentHTML('beforeend', contactBarHTML);
+  }
+});

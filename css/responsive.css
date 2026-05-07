@@ -703,6 +703,22 @@
 }
 
 @media only screen and (max-width: 767px) {
+  /* Mobil Header Boyutunu Küçültme */
+  .main-header .header-upper .logo-box {
+    padding: 10px 0px !important;
+  }
+
+  .main-header .header-upper .logo-box .logo img {
+    max-height: 35px !important;
+  }
+
+  .main-header .nav-outer .mobile-nav-toggler {
+    margin-top: 10px !important;
+  }
+
+  .main-header .header-upper .inner-container {
+    padding: 0 15px !important;
+  }
 
   .banner-carousel .slide-item .shape-1,
   .banner-carousel .slide-item .shape-2,
